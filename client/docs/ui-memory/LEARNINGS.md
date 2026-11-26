@@ -772,3 +772,9 @@ visible text. pdfjs-dist installs `@napi-rs/canvas`, and two real problems appea
 (D-069). Unit-level axe results depend on what is installed: a passing axe test without a canvas
 proves less than it seems, and the browser specs remain the reference.
 
+### L-106 · A long sidebar pushed Log out off a short screen
+`2026-11-26` · saheejuu2 · scope: shared/layout · confidence: high
+The desktop sidebar is `fixed inset-y-0` and nothing in it scrolled except `sidebarExtra`, so
+Admin's nine-row nav pushed the footer (Log out, Collapse sidebar) below a 720px-tall window:
+`login` "logging out from the sidebar" timed out with "element is outside of the viewport".
+`AppShell` now scrolls the nav (`min-h-0 shrink overflow-y-auto`) and keeps the footer `shrink-0`.

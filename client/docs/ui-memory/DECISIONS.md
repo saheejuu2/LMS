@@ -993,3 +993,26 @@ for faculty, courses, and users. The Student "Due this week" cell's phone label 
 "Due soon", a word of its full label. `admin-flow`'s OVERVIEW spec selects `/^\d+ Total Students/`;
 no journey changed. Found when jsdom gained a canvas (L-105). D-068 is held by the offline plan.
 
+### D-070 · `/` lands on sign-in; the sign-in page is the form alone; the profile is not a menu
+`2026-11-27` · saheejuu2 (user request) · scope: auth, router, shared, e2e · confidence: high
+Supersedes the page layout of D-045 and D-049–D-053.
+- **Landing:** a URL that names no workspace (`/`, `/index.html`, the base path) redirects to
+  `/login` (`isLanding` in `app/router/roles.ts`). Every URL that names a role, including
+  `/student`, still opens that workspace (D-004). The build also writes `login.html`.
+- **Sign-in page:** the college panel (name, rotating billboard, Institutional profile dialog,
+  Connect with us links) is removed. `/login` is the brand and the form in one flat card (max
+  `28rem`) centered on the canvas, with the copyright line under it. A phone held sideways (the
+  `landscape-short` variant: landscape, at most 32rem tall, at least 34rem wide) gets a wider
+  card with the heading and Demo accounts beside the form, so 844×390 fits without scrolling.
+  Removed code: `CollegePanel`, `ProfileBillboard`, `CollegeProfileDialog`, `CoreValueList`,
+  `SocialIcons`, `useRotation`; `data/collegeProfile.ts` keeps only the college's name.
+- **Log out and the profile:** there is no workspace switcher. The top-right profile is
+  `ProfileSummary` (initials, plus name and subtitle from xl up); it is not a button. Log out
+  (`LogoutButton`) is in the sidebar footer of every workspace and returns to `/login`, where
+  another workspace is chosen by signing in. Student below lg has no sidebar, so its top bar
+  has a Log out icon button there. The sidebar nav scrolls so Log out stays on screen (L-106).
+- **Tailwind gotcha:** variant classes must be written out in full; a class built from a
+  template string (`${SHORT}:p-5`) is never seen by Tailwind.
+Journeys changed: `routing` and `shell` ROLE switch workspace through Log out and sign-in;
+`new-shell` checks the profile opens nothing; `login` checks eight sizes from 320×640 to
+1440×900 and the Student phone Log out. `e2e/global-setup.ts` also warms `/login`.

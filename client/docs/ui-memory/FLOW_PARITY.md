@@ -23,7 +23,7 @@ Spec: ✔ covered · ✖ not yet covered (add before rebuilding)
 | S1 | Search → assessment / material | ✔ `shell` S1 | ✅ |
 | NO | Notification → assessment | ✔ `shell` NO | ✅ |
 | P | Profile names the viewed student; Today switches student (D-032; Reset demo data removed) | ✔ `shell` P | ✅ |
-| ROLE | Profile menu → switch workspace | ✔ `shell` ROLE | ✅ |
+| ROLE | Sidebar Log out → sign in to another workspace; the top-bar profile opens nothing, and Student phones log out from the top bar (D-070) | ✔ `shell` ROLE, `login` @mobile | ✅ |
 | T, T2 | Tasks list → open assessment | ✔ `student-flow` T → AD | ✅ |
 | T1 | Filter dropdown (Due soon / this week / Missing / Done) | ✖ | ✅ |
 | TD | "Assessments done" summary → Tasks: Done | ✔ `student-flow` (after reload) | ✅ |
@@ -69,7 +69,7 @@ Student: every ✔ row passed unchanged on the rebuilt UI before cutover (Phase 
 | TOOLS | Search → class, notifications (empty state), breadcrumb → Overview | ✔ `shell` TOOLS | ✅ |
 | TOOLS | Notification → pending review | ✔ `instructor-more` | ✅ |
 | F | "Review student work" → review queue | ✔ `instructor-more` | ✅ |
-| ROLE | Switch role (URL, title, Back) | ✔ `routing` | ✅ |
+| ROLE | Switch role through Log out and sign-in (URL, title, Back; D-070) | ✔ `routing` | ✅ |
 | A, PICK | Sidebar class; year filter | ✔ `instructor-flow` / `shell` PICK | ✅ |
 | TABS | All seven class tabs reachable (Attendance, the eighth, is covered by `attendance`) | ✔ `instructor-flow` A → TABS | ✅ |
 | PEOPLE | Roster search | ✔ `instructor-flow` People | ✅ |
