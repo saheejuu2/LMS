@@ -30,7 +30,7 @@ export function matchRole(location: LocationLike): RoleMatch {
 /**
  * True when the URL names no workspace at all: the site root, `/index.html`, or
  * the deployment base path, with no `?role=` or `#role`. That is the landing
- * page, which is sign-in (D-066). Every URL that names a role, including
+ * page, which is sign-in (D-070). Every URL that names a role, including
  * `/student`, still opens that workspace (D-004).
  */
 export function isLanding(location: LocationLike): boolean {

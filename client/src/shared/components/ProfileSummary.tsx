@@ -9,7 +9,7 @@ function initials(name: string) {
 }
 
 /**
- * Who is signed in, shown in the top bar. It opens nothing (D-066): Log out is in the
+ * Who is signed in, shown in the top bar. It opens nothing (D-070): Log out is in the
  * sidebar, the phone drawer, or, on Student phones, the top bar's own Log out button.
  * Below xl only the initials show; the name stays readable to screen readers.
  */

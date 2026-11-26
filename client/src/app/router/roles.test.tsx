@@ -22,7 +22,7 @@ describe("matchRole", () => {
   });
 });
 
-describe("isLanding (D-066)", () => {
+describe("isLanding (D-070)", () => {
   it.each([at("/"), at(""), at("/index.html"), at("/", "?ui=classic")])("treats %o as the landing page", (location) => {
     expect(isLanding(location)).toBe(true);
   });

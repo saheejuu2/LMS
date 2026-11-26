@@ -7,7 +7,7 @@ test("/login shows only the sign-in form", async ({ page }) => {
   await page.goto("/login");
   await expect(page.getByRole("heading", { level: 1, name: "Sign in" })).toBeVisible();
   await expect(page).toHaveTitle("TMCC LMS · Sign in");
-  // The college panel was removed (D-066).
+  // The college panel was removed (D-070).
   await expect(page.getByRole("heading")).toHaveCount(1);
   await expect(page.getByRole("navigation", { name: "Connect with us" })).toHaveCount(0);
   await expectNoAxeViolations(page);
@@ -98,7 +98,7 @@ test("logging out from the sidebar returns to the login page", async ({ page }) 
   await expect(page.getByRole("heading", { level: 1, name: "Sign in" })).toBeVisible();
 });
 
-// D-066: the profile opens nothing; Student phones, which have no sidebar, log out from the top bar.
+// D-070: the profile opens nothing; Student phones, which have no sidebar, log out from the top bar.
 test("on a phone, the Student top bar's Log out returns to the login page @mobile", async ({ page }) => {
   await page.goto("/student");
   await expect(page.getByRole("banner")).toContainText("Alex Rivera");
@@ -111,7 +111,7 @@ test("on a phone, the Student top bar's Log out returns to the login page @mobil
   await expect(page.getByRole("heading", { level: 1, name: "Sign in" })).toBeVisible();
 });
 
-// Portrait and landscape phones and tablets, plus the narrowest supported width (D-066).
+// Portrait and landscape phones and tablets, plus the narrowest supported width (D-070).
 const SIZES = [
   { name: "320px portrait", width: 320, height: 640 },
   { name: "phone portrait", width: 390, height: 844 },

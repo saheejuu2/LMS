@@ -35,7 +35,7 @@ function RoleWorkspaceRoute() {
   const navigateRole = useRoleNavigation();
   const { role, unknownPath } = matchRole(location);
 
-  // The landing page is sign-in (D-066); /student and the other role URLs open their workspace.
+  // The landing page is sign-in (D-070); /student and the other role URLs open their workspace.
   if (isLanding(location)) return <Navigate to="/login" replace />;
   if (unknownPath) return <UnknownRolePage unknownPath={unknownPath} onNavigateRole={navigateRole} />;
   if (role === "admin") return <AdminApp />;
@@ -52,7 +52,7 @@ function LoginRoute() {
  * The catch-all route resolves the role exactly as the legacy router did, so
  * every old URL form still works (D-004); /ui-kit is the design-system
  * reference, /isms-link the ISMS connection check (D-030), and /login the sign-in
- * page (D-044), which is also where `/` lands (D-066). Since cutover (D-021),
+ * page (D-044), which is also where `/` lands (D-070). Since cutover (D-021),
  * Student and Instructor always use the rebuilt UI; a leftover ?ui= parameter
  * is ignored.
  */

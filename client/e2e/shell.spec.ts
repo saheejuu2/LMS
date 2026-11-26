@@ -52,18 +52,22 @@ test.describe("Student · shell", () => {
     await submitQuiz(page);
     await page.getByRole("navigation", { name: "Main navigation" }).getByRole("button", { name: "Dashboard" }).click();
     await expect(page.getByRole("button", { name: /^1 Assessments done/ })).toBeVisible();
-    await expect(page.getByRole("banner").getByRole("button", { name: /Alex Rivera/ })).toBeVisible();
+    await expect(page.getByRole("banner")).toContainText("Alex Rivera");
 
     await page.getByRole("combobox", { name: "Choose demo student" }).selectOption({ label: "Jamie Lee" });
     await expect(page.getByRole("heading", { level: 1, name: /Good morning, Jamie/ })).toBeVisible();
     await expect(page.getByRole("button", { name: /^0 Assessments done/ })).toBeVisible();
-    await expect(page.getByRole("banner").getByRole("button", { name: /Jamie Lee/ })).toBeVisible();
+    await expect(page.getByRole("banner")).toContainText("Jamie Lee");
   });
 
-  test("ROLE: the profile menu switches workspace", async ({ page }) => {
+  // D-070: Log out (in the sidebar) returns to sign-in, where another workspace is chosen.
+  test("ROLE: Log out returns to sign-in, which opens another workspace", async ({ page }) => {
     await openRole(page, "student");
-    await page.getByRole("banner").getByRole("button", { name: /Alex Rivera/ }).click();
-    await page.getByRole("group", { name: "Switch workspace" }).getByRole("button", { name: "Instructor workspace" }).click();
+    await page.getByRole("button", { name: "Log out" }).click();
+    await expect(page).toHaveURL(/\/login$/);
+    await page.getByLabel("Email", { exact: true }).fill("instructor@tmcc.edu.ph");
+    await page.getByLabel("Password", { exact: true }).fill("instructor123");
+    await page.getByRole("button", { name: "Sign in" }).click();
     await expect(page).toHaveURL(/\/instructor$/);
     await expect(page.getByRole("heading", { level: 1, name: /Good morning, Angela/ })).toBeVisible();
   });

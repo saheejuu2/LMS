@@ -28,7 +28,7 @@ for (const [path, role] of cases) {
   });
 }
 
-// D-066: the landing page is sign-in. Only a URL that names a role opens a workspace.
+// D-070: the landing page is sign-in. Only a URL that names a role opens a workspace.
 for (const path of ["/", "/index.html"]) {
   test(`${path} lands on the sign-in page`, async ({ page }) => {
     await page.goto(path);
@@ -47,7 +47,7 @@ test("an unknown path shows the role fallback, which can return to Student", asy
   await expect(page.getByRole("heading", { level: 1, name: STUDENT })).toBeVisible();
 });
 
-// D-066: there is no workspace switcher; another role is reached by logging out and signing in again.
+// D-070: there is no workspace switcher; another role is reached by logging out and signing in again.
 test("switching role goes through Log out and sign-in, and Back returns to the previous role", async ({ page }) => {
   await page.goto("/student");
   await page.getByRole("button", { name: "Log out" }).click();

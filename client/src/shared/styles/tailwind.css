@@ -211,3 +211,9 @@
     color: var(--color-primary-900);
   }
 }
+
+/*
+ * A phone held sideways: wide enough for two columns, too short for a tall card. The sign-in
+ * page (D-070) moves its heading beside the form here instead of making people scroll.
+ */
+@custom-variant landscape-short (@media (orientation: landscape) and (max-height: 32rem) and (min-width: 34rem));

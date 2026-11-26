@@ -10,7 +10,7 @@ import type { SignIn, WorkspaceRole } from "./types";
 const COPYRIGHT_YEAR = new Date().getFullYear();
 
 /**
- * /login (D-044, D-066): the sign-in form alone, in one card centered on the canvas. Portrait
+ * /login (D-044, D-070): the sign-in form alone, in one card centered on the canvas. Portrait
  * and desktop: one column. A phone held sideways (`landscape-short`): a wider card with the
  * brand and heading beside the form, so it fits the short screen. The page is `min-h-dvh`, so
  * when the card is taller than the screen it scrolls instead of clipping the card's top.

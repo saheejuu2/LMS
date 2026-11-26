@@ -156,7 +156,7 @@ function Workspace() {
                 onSelect={(item) => navigate(studentPaths.assessment(item.id))}
               />
               <ProfileSummary name={catalog.me.name} subtitle={STUDENT_SUBTITLE} />
-              {/* Below lg Student has a bottom bar and no sidebar, so Log out lives here (D-066). */}
+              {/* Below lg Student has a bottom bar and no sidebar, so Log out lives here (D-070). */}
               <IconButton label="Log out" className="lg:hidden" onClick={handleLogout}><LogOut /></IconButton>
             </>
           }

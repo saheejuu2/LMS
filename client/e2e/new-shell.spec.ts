@@ -31,7 +31,7 @@ test.describe("New Student shell", () => {
     await expect(page.getByRole("navigation", { name: "admin navigation" })).toBeVisible();
   });
 
-  // D-066: the top-bar profile only names who is signed in; Log out stays in the sidebar.
+  // D-070: the top-bar profile only names who is signed in; Log out stays in the sidebar.
   test("the profile names the instructor and opens no menu; the sidebar has Log out", async ({ page }) => {
     await page.goto("/instructor");
     const banner = page.getByRole("banner");

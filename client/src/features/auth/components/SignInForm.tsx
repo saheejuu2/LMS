@@ -39,7 +39,7 @@ export function SignInForm({
   });
 
   return (
-    // One column; on a phone held sideways (landscape-short, D-066) the brand, heading, and demo
+    // One column; on a phone held sideways (landscape-short, D-070) the brand, heading, and demo
     // accounts sit on the left and the form on the right, so the card fits the short screen.
     <section
       aria-labelledby="login-title"

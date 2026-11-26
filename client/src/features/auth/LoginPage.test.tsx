@@ -30,7 +30,7 @@ describe("LoginPage", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Sign in" })).toBeInTheDocument();
     expect(screen.getByLabelText("Email")).toBeRequired();
     expect(screen.getByLabelText("Password")).toHaveAttribute("type", "password");
-    // The college panel was removed (D-066): no second heading, profile, or links beside the form.
+    // The college panel was removed (D-070): no second heading, profile, or links beside the form.
     expect(screen.getAllByRole("heading").map((heading) => heading.textContent)).toEqual(["Sign in"]);
     expect(screen.queryByRole("button", { name: "Institutional profile" })).not.toBeInTheDocument();
     expect(screen.queryByRole("navigation", { name: "Connect with us" })).not.toBeInTheDocument();
